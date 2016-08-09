@@ -20,16 +20,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', '132149-trepe');
+define('DB_NAME', 'trepe');
 
 /** MySQL database username */
-define('DB_USER', '132149-cg81334');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'steel1992');
+define('DB_PASSWORD', '');
 
 /** MySQL hostname */
-define('DB_HOST', 'mysql15.citynetwork.se');
+define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -77,7 +77,11 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
+
+
+define('WP_SITEURL', 'http://localhost:8080/trepe/');
+define('WP_HOME', 'http://localhost:8080/trepe/');
 
 /* That's all, stop editing! Happy blogging. */
 
