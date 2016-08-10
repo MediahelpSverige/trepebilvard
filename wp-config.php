@@ -68,7 +68,7 @@ if (PHP_SAPI == "cli" && defined('WP_CLI_ROOT')) {
             define('WP_ENV', $m[1]);
         }
     }
-	$hostname = "localhost";
+    $hostname = "localhost";
 }
 
 // Filter
@@ -106,8 +106,6 @@ if (!defined('WP_HOME')) {
 if (defined('WP_CACHE')) {
     define('COOKIE_DOMAIN', $hostname);
 }
-
-$table_prefix  = 'wp_';
 
 // Clean up
 unset($hostname, $protocol);

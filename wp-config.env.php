@@ -37,4 +37,3 @@ switch ($hostname) {
     default: 
         define('WP_ENV', 'production');
 }
-
