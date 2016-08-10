@@ -80,8 +80,8 @@ $table_prefix  = 'wp_';
 define('WP_DEBUG', true);
 
 
-define('WP_SITEURL', 'http://localhost:8080/trepe/');
-define('WP_HOME', 'http://localhost:8080/trepe/');
+define('WP_SITEURL', 'http://trepebilvard.mediahelpcrm.se/');
+define('WP_HOME', 'http://trepebilvard.mediahelpcrm.se/');
 
 /* That's all, stop editing! Happy blogging. */
 
