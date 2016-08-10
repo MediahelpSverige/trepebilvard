@@ -107,6 +107,8 @@ if (defined('WP_CACHE')) {
     define('COOKIE_DOMAIN', $hostname);
 }
 
+$table_prefix  = 'wp_';
+
 // Clean up
 unset($hostname, $protocol);
 
