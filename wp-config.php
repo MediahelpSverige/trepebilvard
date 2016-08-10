@@ -77,17 +77,13 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', true);
-
-
-define('WP_SITEURL', 'http://trepebilvard.mediahelpcrm.se/');
-define('WP_HOME', 'http://trepebilvard.mediahelpcrm.se/');
+define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-    define('ABSPATH', dirname(__FILE__) . '/');
+	define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
