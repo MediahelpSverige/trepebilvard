@@ -25,7 +25,7 @@
  *
  */
 switch ($hostname) {
-    case 'localhost:8080/trepe/':
+    case 'localhost:8080':
         define('WP_ENV', 'development');
         break;
     
