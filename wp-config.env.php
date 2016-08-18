@@ -35,5 +35,5 @@ switch ($hostname) {
 
     case 'www.domain.com':
     default: 
-        define('WP_ENV', 'production');
+        define('WP_ENV', 'staging');
 }
