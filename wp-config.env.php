@@ -33,7 +33,12 @@ switch ($hostname) {
         define('WP_ENV', 'staging');
         break;
 
-    case 'www.domain.com':
+    case 'http://trepebilvard.se/':
+    	define('WP_ENV', 'production');
+
+    case 'http://www.trepebilvard.se/':
+    	define('WP_ENV', 'production');
+
     default: 
         define('WP_ENV', 'staging');
 }

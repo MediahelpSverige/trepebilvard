@@ -13,16 +13,21 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', '');
+define('DB_NAME', 'trepebilvard_se');
 
 /** MySQL database username */
-define('DB_USER', '');
+define('DB_USER', 'trepebilvard_se');
 
 /** MySQL database password */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'ETi3ySLN');
 
 /** MySQL hostname */
-define('DB_HOST', '');
+define('DB_HOST', 'trepebilvard.se.mysql');
+
+$table_prefix  = 'wp_';
+
+define('WP_SITEURL', 'http://trepebilvard.se/');
+define('WP_HOME', 'http://trepebilvard.se/');
 
 /**
  * For developers: WordPress debugging mode.
