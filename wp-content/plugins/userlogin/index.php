@@ -345,6 +345,9 @@ function user()
 
 		if ($_POST['reg'] != "") {
 
+
+			add_action( 'wp_loaded', 'check_user' );
+
 			$reg->check_user($_POST['reg'], $_POST['phone']);
 
 		}
