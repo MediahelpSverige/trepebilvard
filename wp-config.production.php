@@ -29,6 +29,10 @@ $table_prefix  = 'wp_';
 define('WP_SITEURL', 'http://trepebilvard.se/');
 define('WP_HOME', 'http://trepebilvard.se/');
 
+define('DB_CHARSET', 'utf8');
+
+define( 'DB_COLLATE', '');
+
 /**
  * For developers: WordPress debugging mode.
  *
