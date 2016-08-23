@@ -153,7 +153,6 @@ function check_user($reg, $numb){
 			if (isset($numb) && !empty($numb)) {
 
 				$phone = $_POST['phone'];
-				echo $phone;
 
 			}else{
 
@@ -179,12 +178,12 @@ $result = $wpdb->get_results("SELECT * FROM wp_kund WHERE registration='$reg'", 
 if (isset($result) && !empty($result)) {
 
   // do something
-	echo "user exist";
+//user exists
 
 	$_COOKIE['reg'] = $reg;
 	$_COOKIE['phone'] = $phone;
 
-wp_redirect(bloginfo('url') . '/trepe/boka-tid?reg='.$reg.'');
+wp_redirect(bloginfo('url') . '/boka-tid?reg='.$reg.'');
 exit;
 
 
@@ -213,7 +212,7 @@ exit;
 			$_COOKIE['reg'] = $reg;
 	$_COOKIE['phone'] = $phone;
 
-wp_redirect(bloginfo('url') . '/trepe/boka-tid?reg='.$reg.'');
+wp_redirect(bloginfo('url') . '/boka-tid?reg='.$reg.'');
 exit;
 
 	}
