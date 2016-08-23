@@ -48,8 +48,7 @@ if (!defined('ABSPATH')) {
     define('ABSPATH', dirname(__FILE__) . '/');
 }
 
-define( 'DB_COLLATE', '' );
-define('DB_CHARSET', 'utf8');
+
 
 // Try environment variable 'WP_ENV'
 if (getenv('WP_ENV') !== false) {
@@ -112,9 +111,6 @@ if (defined('WP_CACHE')) {
 }
 */
 
-define('DB_CHARSET', 'utf8');
-
-define( 'DB_COLLATE', '');
 
 // Clean up
 unset($hostname, $protocol);

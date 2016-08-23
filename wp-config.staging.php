@@ -27,6 +27,11 @@ define('DB_HOST', 'localhost');
 define('WP_SITEURL', 'http://trepebilvard.mediahelpcrm.se');
 define('WP_HOME', 'http://trepebilvard.mediahelpcrm.se');
 
+
+define('DB_CHARSET', 'utf8');
+
+define( 'DB_COLLATE', '');
+
 define( 'WP_DEBUG_LOG', true );
 
 /**#@+
