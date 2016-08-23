@@ -180,8 +180,7 @@ if (isset($result) && !empty($result)) {
   // do something
 //user exists
 
-	$_COOKIE['reg'] = $reg;
-	$_COOKIE['phone'] = $phone;
+echo "string";
 
 wp_redirect(bloginfo('url') . '/boka-tid?reg='.$reg.'');
 exit;
@@ -193,6 +192,8 @@ exit;
 }else {
 
 	//echo "create customer";
+
+
 
 
 
