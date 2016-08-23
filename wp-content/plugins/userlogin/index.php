@@ -97,7 +97,9 @@ function create_kund() {
 
 }
 
-add_action('wp_laoded', 'check_user');
+
+
+//add_action('wp_loaded', 'check_user');
 
 function check_user($reg, $numb){
 
@@ -341,8 +343,10 @@ function user()
 
 
 
-		if (isset(($_POST['reg'])) {
+		if ($_POST['reg'] != "") {
+
 			$reg->check_user($_POST['reg'], $_POST['phone']);
+
 		}
 		
 
