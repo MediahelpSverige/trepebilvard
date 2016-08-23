@@ -103,6 +103,8 @@ function create_kund() {
 
 function check_user($reg, $numb){
 
+	session_start();
+
 
 //echo $_POST['ID'];
 
@@ -129,7 +131,7 @@ function check_user($reg, $numb){
 
 						$error = 'Ditt nummer är för långt';
 						    if(!session_id()) {
-        					session_start();
+        					
     					}
 
 						$_SESSION['error_msg'] = $error;
@@ -346,7 +348,7 @@ function user()
 		if ($_POST['reg'] != "") {
 
 
-			add_action( 'wp_loaded', 'check_user' );
+
 
 			$reg->check_user($_POST['reg'], $_POST['phone']);
 
