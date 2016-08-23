@@ -11,42 +11,54 @@
 
 if( !class_exists('user') ):
 
-	echo "user";
+	//echo "user";
 
 /**
 * 
 */
 class user
 {
+
+
 	
 	function __construct()
 	{
 		//echo "init";
+
+
+
+
 
 		global $wpdb;
 
 
 		$table_name = $wpdb->prefix . "kund"; 
 
-		echo $table_name;
+
+
 
 		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
 
 			$sql = "CREATE TABLE $table_name (
           id mediumint(9) NOT NULL AUTO_INCREMENT,
-          field_x text NOT NULL,
-          field_y text NOT NULL,
+          registration text NOT NULL,
+          phone text NOT NULL,
+          email text NOT NULL,
+          firstname text NOT NULL,
+          lastname text NOT NULL,
           UNIQUE KEY id (id)
      ) $charset_collate;";
 
 
      require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+     
 
      dbDelta( $sql );
 
 
 
 		}else{
+
 
 
 
@@ -59,9 +71,9 @@ class user
 
 		add_action('get_post_id', array($this, 'get_post_id'), 1);
 
+		add_action('check_user','check_user');
 
 	}
-
 
 
 
@@ -70,21 +82,158 @@ function get_post_id(){
 
 
 
-
-
-
 }
+
 
 function create_kund() {
 
 
 
+}
+
+function check_user($reg, $numb){
+
+
+//echo $_POST['ID'];
+
+		if ($_POST['ID'] == 4 ){
+
+
+
+
+	require_once( ABSPATH . '/wp-includes/pluggable.php' );
+
+
+	global $wpdb;
+
+
+	$reg = str_replace(' ', '', $reg);
+
+
+	$length =  strlen($reg);
+
+
+
+
+	//check if form fields are empty
+
+
+				if (isset($reg) && !empty($reg)) {
+
+					if ($length != 6) {
+
+						$error = 'Ditt nummer är för långt';
+						//setcookie('error',$error);
+						wp_redirect(bloginfo('url') . '/trepe/?error='.$error.'');
+						//return $error;
+
+					}
+
+
+
+				$reg = $_POST['reg'];
+				$reg = str_replace(' ', '', $reg);
+				$reg = strtolower($reg);
+
+			}else{
+
+
+
+				$error = "du måste ange ett riktigt registreringsnummer";
+				//setcookie('error',$error);
+				wp_redirect(bloginfo('url') . '/trepe/?error='.$error.'');
+				//return $error;
+
+			}
+
+
+			if (isset($numb) && !empty($numb)) {
+
+				$phone = $_POST['phone'];
+				echo $phone;
+
+			}else{
+
+
+
+				$error = "ange ett telefonnummer";
+
+				//setcookie('error',$error);
+				wp_redirect(bloginfo('url') . '/trepe/?error='.$error.'');
+				//return $error;
+			}
+
+
+// check if user exist
+
+
+$result = $wpdb->get_results("SELECT * FROM wp_kund WHERE registration='$reg'", OBJECT);
+
+//print_r($result);
+
+
+
+if (isset($result) && !empty($result)) {
+
+  // do something
+	echo "user exist";
+
+	$_COOKIE['reg'] = $reg;
+	$_COOKIE['phone'] = $phone;
+
+wp_redirect(bloginfo('url') . '/trepe/boka-tid?reg='.$reg.'');
+exit;
+
+
+
+
+
+}else {
+
+	//echo "create customer";
+
+
+
+	if($wpdb->insert($wpdb->prefix . "kund", 
+
+		array(
+
+			'registration' => $reg,
+			'phone' => $phone
+
+		),
+
+		array(
+			'%s'
+			)
+	)){
+			$_COOKIE['reg'] = $reg;
+	$_COOKIE['phone'] = $phone;
+
+wp_redirect(bloginfo('url') . '/trepe/boka-tid?reg='.$reg.'');
+exit;
+
+	}
+
+
+
+  //if user doesnt exist, create
+
 
 
 
 }
 
-function check_user(){
+
+
+
+
+
+	}
+
+
+
+
 
 }
 
@@ -151,9 +300,9 @@ function save_post( $post_id )
 			'rewrite' => false,
 			'query_var' => "user",
 			'supports' => array(
-				'title',
+				'title','editor'
 			),
-			'show_in_menu'	=> false,
+			'show_in_menu'	=> true,
 		));
 
 
@@ -184,7 +333,15 @@ function user()
 	
 	if( !isset($user) )
 	{
-		$acf = new user();
+		$reg = new user();
+
+
+
+
+		$reg->check_user($_POST['reg'], $_POST['phone']);
+
+
+
 	}
 	
 	return $user;
@@ -194,7 +351,9 @@ function user()
 
 
 // initialize
-user();
+$user = user();
+
+
 
 
 endif; // class_exists check
