@@ -345,7 +345,7 @@ function user()
 
 
 
-		if ($_POST['reg'] != "") {
+		if (isset($_POST['reg'])) {
 
 
 
