@@ -27,6 +27,8 @@ define('DB_HOST', 'localhost');
 define('WP_SITEURL', 'http://trepebilvard.mediahelpcrm.se');
 define('WP_HOME', 'http://trepebilvard.mediahelpcrm.se');
 
+define( 'WP_DEBUG_LOG', true );
+
 /**#@+
  * Authentication Unique Keys and Salts.
  *

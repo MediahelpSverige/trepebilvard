@@ -48,6 +48,9 @@ if (!defined('ABSPATH')) {
     define('ABSPATH', dirname(__FILE__) . '/');
 }
 
+define( 'DB_COLLATE', '' );
+define('DB_CHARSET', 'utf8');
+
 // Try environment variable 'WP_ENV'
 if (getenv('WP_ENV') !== false) {
     // Filter non-alphabetical characters for security
