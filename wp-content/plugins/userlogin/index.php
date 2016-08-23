@@ -170,7 +170,7 @@ function check_user($reg, $numb){
 				$error = "ange ett telefonnummer";
 
 				//setcookie('error',$error);
-				wp_redirect(bloginfo('url') . '/?error='.$error.'');
+				wp_redirect(get_bloginfo('url') . '/?error='.$error.'');
 				exit;
 			}
 
@@ -191,7 +191,8 @@ if (isset($result) && !empty($result)) {
 
 //echo "string";
 
-wp_redirect(''. bloginfo('url') .'/boka-tid?reg='.$reg.'');
+
+wp_redirect(''. get_bloginfo('url') .'/boka-tid?reg='.$reg.'');
 exit;
 
 
@@ -220,7 +221,7 @@ exit;
 			)
 	)){
 
-wp_redirect(''. bloginfo('url') .'/boka-tid?reg='.$reg.'');
+wp_redirect(''. get_bloginfo('url') .'/boka-tid?reg='.$reg.'');
 exit;
 
 	}
