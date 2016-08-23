@@ -191,7 +191,7 @@ if (isset($result) && !empty($result)) {
 
 //echo "string";
 
-wp_redirect('http://trepebilvard.mediahelpcrm.se/boka-tid?reg='.$reg.'');
+wp_redirect(''. bloginfo('url') .'/boka-tid?reg='.$reg.'');
 exit;
 
 
@@ -220,7 +220,7 @@ exit;
 			)
 	)){
 
-wp_redirect('http://trepebilvard.mediahelpcrm.se/boka-tid?reg='.$reg.'');
+wp_redirect(''. bloginfo('url') .'/boka-tid?reg='.$reg.'');
 exit;
 
 	}
