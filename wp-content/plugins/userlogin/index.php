@@ -97,17 +97,14 @@ function create_kund() {
 
 }
 
+add_action('wp_laoded', 'check_user');
+
 function check_user($reg, $numb){
 
 
 //echo $_POST['ID'];
 
 		if ($_POST['ID'] == 4 ){
-
-
-
-
-
 
 
 	global $wpdb;
@@ -344,8 +341,10 @@ function user()
 
 
 
-
-		$reg->check_user($_POST['reg'], $_POST['phone']);
+		if (isset(($_POST['reg'])) {
+			$reg->check_user($_POST['reg'], $_POST['phone']);
+		}
+		
 
 
 
