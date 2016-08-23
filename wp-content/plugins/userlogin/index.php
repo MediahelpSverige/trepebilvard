@@ -189,7 +189,7 @@ if (isset($result) && !empty($result)) {
 
 //echo "string";
 
-wp_redirect(bloginfo('url') . '/boka-tid?reg='.$reg.'');
+wp_redirect('http://trepebilvard.mediahelpcrm.se/boka-tid?reg='.$reg.'');
 exit;
 
 
@@ -218,7 +218,7 @@ exit;
 			)
 	)){
 
-wp_redirect(bloginfo('url') . '/boka-tid?reg='.$reg.'');
+wp_redirect('http://trepebilvard.mediahelpcrm.se/boka-tid?reg='.$reg.'');
 exit;
 
 	}
@@ -346,9 +346,6 @@ function user()
 
 
 		if (isset($_POST['reg'])) {
-
-
-
 
 			$reg->check_user($_POST['reg'], $_POST['phone']);
 
