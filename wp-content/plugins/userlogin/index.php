@@ -9,6 +9,10 @@
  * License: GPL2
  */
 
+     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+
+     require_once( ABSPATH . '/wp-includes/pluggable.php' );
+
 if( !class_exists('user') ):
 
 	//echo "user";
@@ -50,7 +54,7 @@ class user
      ) $charset_collate;";
 
 
-     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+
      
 
      dbDelta( $sql );
@@ -67,11 +71,13 @@ class user
 
 
 				// actions
+		/*
 		add_action('init', array($this, 'init'), 1);
 
 		add_action('get_post_id', array($this, 'get_post_id'), 1);
 
 		add_action('check_user','check_user');
+		*/
 
 	}
 
@@ -101,7 +107,7 @@ function check_user($reg, $numb){
 
 
 
-	require_once( ABSPATH . '/wp-includes/pluggable.php' );
+
 
 
 	global $wpdb;
@@ -144,7 +150,7 @@ function check_user($reg, $numb){
 
 				$error = "du måste ange ett riktigt registreringsnummer";
 				//setcookie('error',$error);
-				wp_redirect(bloginfo('url') . '/trepe?error='.$error.'');
+				wp_redirect(bloginfo('url') . '/?error='.$error.'');
 				exit;
 
 			}
@@ -161,7 +167,7 @@ function check_user($reg, $numb){
 				$error = "ange ett telefonnummer";
 
 				//setcookie('error',$error);
-				wp_redirect(bloginfo('url') . '/trepe?error='.$error.'');
+				wp_redirect(bloginfo('url') . '/?error='.$error.'');
 				exit;
 			}
 
