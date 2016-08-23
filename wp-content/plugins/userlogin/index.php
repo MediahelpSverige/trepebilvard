@@ -210,8 +210,6 @@ exit;
 			'%s'
 			)
 	)){
-			$_COOKIE['reg'] = $reg;
-	$_COOKIE['phone'] = $phone;
 
 wp_redirect(bloginfo('url') . '/boka-tid?reg='.$reg.'');
 exit;
