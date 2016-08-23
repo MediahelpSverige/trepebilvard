@@ -123,9 +123,12 @@ function check_user($reg, $numb){
 					if ($length != 6) {
 
 						$error = 'Ditt nummer är för långt';
-						//setcookie('error',$error);
-						wp_redirect(bloginfo('url') . '/trepe/?error='.$error.'');
-						//return $error;
+						    if(!session_id()) {
+        					session_start();
+    					}
+
+						$_SESSION['error_msg'] = $error;
+						return false;
 
 					}
 
@@ -141,8 +144,8 @@ function check_user($reg, $numb){
 
 				$error = "du måste ange ett riktigt registreringsnummer";
 				//setcookie('error',$error);
-				wp_redirect(bloginfo('url') . '/trepe/?error='.$error.'');
-				//return $error;
+				wp_redirect(bloginfo('url') . '/trepe?error='.$error.'');
+				exit;
 
 			}
 
@@ -159,8 +162,8 @@ function check_user($reg, $numb){
 				$error = "ange ett telefonnummer";
 
 				//setcookie('error',$error);
-				wp_redirect(bloginfo('url') . '/trepe/?error='.$error.'');
-				//return $error;
+				wp_redirect(bloginfo('url') . '/trepe?error='.$error.'');
+				exit;
 			}
 
 
