@@ -71,8 +71,10 @@ class user
 
 
 				// actions
-		/*
+	
 		add_action('init', array($this, 'init'), 1);
+
+			/*
 
 		add_action('get_post_id', array($this, 'get_post_id'), 1);
 
