@@ -180,7 +180,7 @@ if (isset($result) && !empty($result)) {
   // do something
 //user exists
 
-echo "string";
+//echo "string";
 
 wp_redirect(bloginfo('url') . '/boka-tid?reg='.$reg.'');
 exit;
