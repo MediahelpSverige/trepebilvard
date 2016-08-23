@@ -103,9 +103,15 @@ if (!defined('WP_HOME')) {
 }
 
 // Define W3 Total Cache hostname
+/*
 if (defined('WP_CACHE')) {
     define('COOKIE_DOMAIN', $hostname);
 }
+*/
+
+define('DB_CHARSET', 'utf8');
+
+define( 'DB_COLLATE', '');
 
 // Clean up
 unset($hostname, $protocol);
