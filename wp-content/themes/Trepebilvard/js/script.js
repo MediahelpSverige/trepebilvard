@@ -139,7 +139,9 @@ $(document).ready(function() {
 
 
 
-    var mySwiper = new Swiper('.swiper-container', {
+
+
+    var mySwiper = new Swiper('#slideshow .swiper-container', {
 
         // Optional parameters	
 
@@ -162,6 +164,25 @@ $(document).ready(function() {
             $('.banner-text-box').css({
                 display: "block",
             });
+        }
+
+    });
+
+        var tipsSwiper = new Swiper('#tipsslider .swiper-container', {
+
+        loop: true,
+        autoplay: 6000,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        slidesPerView: 3,
+        centeredSlides: true,
+        spaceBetween: 20,
+        breakpoints: {
+            550: {
+                slidesPerView: 1
+            }
         }
 
     });
