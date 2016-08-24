@@ -103,14 +103,15 @@ $(document).ready(function(){
 	var headertop  = headerpos.top;
 		//console.log(headertop);
 	var sideMapPos = $('.sidebar-kontakt').offset();
-	console.log(top - $('.bottom-header').height());
-	console.log('position of sidebartop: ' + $el.offset().top);
-	if (bottom  >= footerTop - 370 && top + $('.bottom-header').height() > $el.offset().top) {
+
+	console.log('bottom:'+ bottom +'');
+	console.log('footer'+ footerTop +'');
+	if (bottom  >= footerTop && top + $('.bottom-header').height() > $el.offset().top) {
 
 			console.log('yo');
 			$('.sidebar-kontakt .border-wrap').css({'bottom':footerTop})
 
-			$('.sidebar-kontakt .border-wrap').offset({ top: footerTop - $el.outerHeight(true)});
+			$('.sidebar-kontakt .border-wrap').offset({ top: footerTop - $el.innerHeight()});
 
 
 	}else if (top + $('.bottom-header').height() >= sideMapStartPos && bottom <= footerTop){
