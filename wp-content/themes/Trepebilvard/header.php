@@ -50,8 +50,8 @@
 								<h4><i class="fa fa-phone-square"></i>018 - 155 605</h4>
 								<h4><i class="fa fa-clock-o"></i>08.00 - 17.00</h4>
 							</div>
-							<img src="<?php bloginfo( 'template_url' ); ?>/img/ackrediterad.jpg">
-							<img src="http://trepebilvard.se/wp-content/uploads/2016/08/kontroll.jpg">
+							<a href="<?php bloginfo('url')?>/ackrediterad-verkstad"><img src="<?php bloginfo( 'template_url' ); ?>/img/ackrediterad.jpg"></a>
+							<a href="http://kbv.nu/"><img id="kbv" src="<?php bloginfo('url');?>/wp-content/uploads/2016/08/kontroll.jpg"></a>
 						</div>
 					</div>
 				</div>
