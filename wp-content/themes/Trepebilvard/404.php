@@ -15,7 +15,9 @@ get_header();
 						the_content();
 						//
 					} // end while
-				} // end if
+				}else{
+					echo "<h1>Hittar inte sidan du letar efter!</h1>";
+				}
 			?>
 		</div>
 	</div>
