@@ -149,7 +149,6 @@ $(document).ready(function() {
         autoplay: 6000,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
-        pagination: '.swiper-pagination',
         paginationClickable: true,
 
 
