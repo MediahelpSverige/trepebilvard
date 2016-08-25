@@ -4,6 +4,15 @@ get_header();
 <section class="section-white">
 	<div class="container">
 	<div class="col-md-8 col-sm-6">
+			<div id="tricks" class="facebook-header">
+		<a href="https://www.facebook.com/trepebilvard/">
+		<i class="fa fa-facebook-official" aria-hidden="true"></i>
+		<h1>Gilla vår sida på Facebook för regelbundna tips och tricks</h1>
+
+		</a>
+
+		</div>
+		<div class="clearfix"></div>
 	<div class="tips-wrap">
 
 			<?php
