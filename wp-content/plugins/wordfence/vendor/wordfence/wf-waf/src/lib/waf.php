@@ -188,6 +188,9 @@ auEa+7b+FGTKs7dUo2BNGR7OVifK4GZ8w/ajS0TelhrSRi3BBQCGXLzUO/UURUAh
 		} catch (wfWAFBlockSQLiException $e) {
 			$this->eventBus->blockSQLi($ip, $e);
 			$this->blockAction($e);
+			
+		} catch (wfWAFLogException $e) {
+			$this->logAction($e);
 		}
 
 		$this->runCron();
@@ -421,8 +424,8 @@ auEa+7b+FGTKs7dUo2BNGR7OVifK4GZ8w/ajS0TelhrSRi3BBQCGXLzUO/UURUAh
 			if (!is_writable($this->getCompiledRulesFile())) {
 				throw new wfWAFBuildRulesException('Rules file not writable.');
 			}
-
-			file_put_contents($this->getCompiledRulesFile(), sprintf(<<<PHP
+			
+			wfWAFStorageFile::atomicFilePutContents($this->getCompiledRulesFile(), sprintf(<<<PHP
 <?php
 if (!defined('WFWAF_VERSION')) {
 	exit('Access denied');
@@ -433,9 +436,9 @@ if (!defined('WFWAF_VERSION')) {
 
 %s?>
 PHP
-				, $this->buildRuleSet($rules)), LOCK_EX);
+				, $this->buildRuleSet($rules)), 'rules');
 			if (!empty($ruleString) && !WFWAF_DEBUG) {
-				file_put_contents($this->getStorageEngine()->getRulesDSLCacheFile(), $ruleString, LOCK_EX);
+				wfWAFStorageFile::atomicFilePutContents($this->getStorageEngine()->getRulesDSLCacheFile(), $ruleString, 'rules');
 			}
 
 			if ($updateLastUpdatedTimestamp) {
@@ -736,6 +739,10 @@ HTML
 		header('HTTP/1.0 403 Forbidden');
 		exit($this->getBlockedMessage());
 	}
+	
+	public function logAction($e) {
+		$this->getStorageEngine()->logAttack(array('logged'), $e->getParamKey(), $e->getParamValue(), $this->getRequest());
+	}
 
 	/**
 	 * @return string
@@ -881,13 +888,16 @@ HTML
 							'k'      => $this->getStorageEngine()->getConfig('apiKey'),
 							's'      => $this->getStorageEngine()->getConfig('siteURL') ? $this->getStorageEngine()->getConfig('siteURL') :
 								sprintf('%s://%s/', $this->getRequest()->getProtocol(), rawurlencode($this->getRequest()->getHost())),
-						)), $this->getStorageEngine()->getAttackData(), $request);
+						), null, '&'), $this->getStorageEngine()->getAttackData(), $request);
 
 					if ($response instanceof wfWAFHTTPResponse && $response->getBody()) {
 						$jsonData = wfWAFUtils::json_decode($response->getBody(), true);
 						if (is_array($jsonData) && array_key_exists('success', $jsonData)) {
 							$this->getStorageEngine()->truncateAttackData();
 							$this->getStorageEngine()->unsetConfig('attackDataNextInterval');
+						}
+						if (array_key_exists('data', $jsonData) && array_key_exists('watchedIPList', $jsonData['data'])) {
+							$this->getStorageEngine()->setConfig('watchedIPs', $jsonData['data']['watchedIPList']);
 						}
 					}
 				} else if (is_string($response->getBody()) && preg_match('/next check in: ([0-9]+)/', $response->getBody(), $matches)) {
@@ -1260,7 +1270,7 @@ class wfWAFCronFetchRulesEvent extends wfWAFCronEvent {
 					'h'        => $waf->getStorageEngine()->getConfig('homeURL') ? $waf->getStorageEngine()->getConfig('homeURL') : $guessSiteURL,
 					'openssl'  => $waf->hasOpenSSL() ? 1 : 0,
 					'betaFeed' => (int) $waf->getStorageEngine()->getConfig('betaThreatDefenseFeed'),
-				)));
+				), null, '&'));
 			if ($this->response) {
 				$jsonData = wfWAFUtils::json_decode($this->response->getBody(), true);
 				if (is_array($jsonData)) {
@@ -1538,6 +1548,9 @@ class wfWAFBlockXSSException extends wfWAFRunException {
 }
 
 class wfWAFBlockSQLiException extends wfWAFRunException {
+}
+
+class wfWAFLogException extends wfWAFRunException {
 }
 
 class wfWAFBuildRulesException extends wfWAFException {
