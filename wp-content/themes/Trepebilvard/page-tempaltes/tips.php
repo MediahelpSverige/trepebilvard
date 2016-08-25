@@ -9,7 +9,8 @@ get_header();
 <section class="section-white">
 	<div class="container">
 		<div class="container-wrap">
-		<div class="col-md-8 col-sm-6">
+		<div id="tricks" class="col-md-8 col-sm-6">
+		<i class="fa fa-facebook-official" aria-hidden="true"></i>
 			<?php
 				if ( have_posts() ) {
 					while ( have_posts() ) {
