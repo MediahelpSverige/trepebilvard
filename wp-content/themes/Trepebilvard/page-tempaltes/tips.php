@@ -23,6 +23,7 @@ get_header();
 					} // end while
 				} // end if
 			?>
+			<div class="clearfix"></div>
 			<div class="tips-wrap">
 			<?php $query8 = new WP_Query(array( 'post_type' => 'tips', 'post_per_page' => -1) );
 			//print_r($query8);
