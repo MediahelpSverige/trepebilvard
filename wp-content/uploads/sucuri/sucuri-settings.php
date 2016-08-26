@@ -1,0 +1,2 @@
+<?php exit(0); ?>
+{"sucuriscan_lastlogin_redirection":"disabled","sucuriscan_dns_lookups":"enabled","sucuriscan_datastore_path":"\/customers\/6\/f\/e\/trepebilvard.se\/httpd.www\/wp-content\/uploads\/sucuri","sucuriscan_plugin_version":"1.8.1","sucuriscan_api_key":"","sucuriscan_runtime":1472168567,"sucuriscan_last_email_at":1472168573,"sucuriscan_emails_sent":1,"sucuriscan_use_wpmail":"disabled","sucuriscan_notify_success_login":"disabled","sucuriscan_notify_post_publication":"disabled"}

@@ -16,3 +16,7 @@
 {"user_id":1,"user_login":"JohanMediahelp","user_remoteaddr":"130.243.215.202","user_hostname":"nl104-215-202.student.uu.se","user_lastlogin":"2016-05-27 08:35:34"}
 {"user_id":1,"user_login":"JohanMediahelp","user_remoteaddr":"195.178.187.202","user_hostname":"195.178.187.202","user_lastlogin":"2016-06-01 16:14:28"}
 {"user_id":1,"user_login":"JohanMediahelp","user_remoteaddr":"195.178.187.202","user_hostname":"195.178.187.202","user_lastlogin":"2016-06-20 16:22:12"}
+{"user_id":1,"user_login":"JohanMediahelp","user_remoteaddr":"195.178.187.202","user_hostname":"195.178.187.202","user_lastlogin":"2016-08-24 15:06:17"}
+{"user_id":1,"user_login":"JohanMediahelp","user_remoteaddr":"195.178.187.202","user_hostname":"195.178.187.202","user_lastlogin":"2016-08-25 08:19:04"}
+{"user_id":1,"user_login":"JohanMediahelp","user_remoteaddr":"195.178.187.202","user_hostname":"195.178.187.202","user_lastlogin":"2016-08-25 09:42:46"}
+{"user_id":1,"user_login":"JohanMediahelp","user_remoteaddr":"195.178.187.202","user_hostname":"195.178.187.202","user_lastlogin":"2016-08-26 11:45:04"}
